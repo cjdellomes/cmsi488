@@ -1,0 +1,112 @@
+{
+    "type": "Program",
+    "body": [
+        {
+            "type": "VariableDeclaration",
+            "declarations": [
+                {
+                    "type": "VariableDeclarator",
+                    "id": {
+                        "type": "Identifier",
+                        "name": x
+                    }
+                },
+                {
+                    "type": "VariableDeclarator",
+                    "id": {
+                        "type": "Identifier",
+                        "name": y
+                    }
+                }
+            ]
+        },
+        {
+            "type": "WhileStatement":
+            "body": {
+                "type": "BlockStatement",
+                "body": [
+                    {
+                        "type": "VariableDeclaration",
+                        "declarations": [
+                            {
+                                "type": "VariableDeclarator",
+                                "id": {
+                                    "type": "Identifier",
+                                    "name": "y"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "body": {
+                            "type": "CallExpression",
+                            "id": {
+                                "type": "Identifier",
+                                "name": "get"
+                            },
+                            "arguments": {
+                                "type": "Identifier",
+                                "name": "x"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "body": {
+                            "type": "CallExpression",
+                            "id": {
+                                "type": "Identifier",
+                                "name": "get"
+                            },
+                            "arguments": {
+                                "type": "Identifier",
+                                "name": "y"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ExpressionStatement",
+                        "body": {
+                            "type": "AssignmentExpression",
+                            "id": {
+                                "type": "Identifier",
+                                "name": "x"
+                            },
+                            "type": "BinaryExpression",
+                            "id": {
+                                "type": "Literal",
+                                "value": 2
+                            },
+                            "type": "Binary"Expression",
+                            "id": {
+                                "type": "Literal",
+                                "value": 3
+                            }
+                            "id": {
+                                "type": "Identifier",
+                                "name": "y"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "ExpressionStatement",
+            "body": [
+                {
+                    "type": "CallExpression",
+                    "id": {
+                        "type": "Identifier",
+                        "name": "get"
+                    },
+                    "arguments": {
+                        "type": "Identifier",
+                        "name": "x"
+                    }
+                }
+            ]
+        }
+    ]
+}

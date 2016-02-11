@@ -1,0 +1,44 @@
+Macrosyntax:
+
+Program -> (FunctionDeclaration)+ Expression
+
+FunctionDeclaration -> 'fun' id '(' (id ',')* ')'  '{' (TernaryExpression ';')+  '}'
+
+TernaryExpression -> Expression0 ('if' Exp0 ('else' TernaryExpression)?)?
+
+Expression0 -> Expression1 (addop Expression1)*
+
+Expression1 -> Expression2 (mulop Expression2)*
+
+Expression2 -> prefixop? Expression3
+
+Expression3 -> Expression4 postfixop?
+
+Expression4 -> numlit | stringlit | id | functioncall
+
+functioncall -> id '(' (TernaryExpression ((TernaryExpression ',')* TernaryExpression)?)? ')'
+
+
+Microsyntax:
+
+letter -> [a-zA-Z]
+
+digit -> [0-9]
+
+id -> (letter | '$') (letter | digit | '_' | '@' | '$')*
+
+numlit -> digit+ (('.' digit)? '**' digit)?
+
+addop -> '+' | '-'
+
+mulop -> '*' | '/' | '%'
+
+prefixop -> '-'
+
+postfixop -> '!'
+
+escape -> '\'' | '\"' | '\r' | '\n' | '\\' | ('\u' [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F])
+
+char -> [^(\x00-\x1F)] | escape
+
+stringlit -> ('"' char* '"')
