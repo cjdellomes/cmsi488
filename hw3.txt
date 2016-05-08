@@ -1,0 +1,52 @@
+Homework 3                                             Adrian Lu
+                                                   Chris Dellomes
+                                                      Peyton Cross
+
+1.
+A. This grammar defines a language that produces strings that contain more a’s than b’s.
+
+B.                  S
+                  /     \
+                A       M
+            /       \       \               
+              ‘a’       E       S
+                    /       \
+                           A        M
+                 /  |   \
+                      ‘b’   A   A
+                     /  |   |     \
+                  ‘a’   E        ‘a’    E
+
+C. The grammar is not LL(1) because, for the rule E ::= (a B | b A), it is possible when at an ‘a’ to derive either a B or an empty string.
+
+D. The grammar is ambiguous since two different parse trees can be made for aaba
+              S                                                                                            S
+       /             \                                                                              /              \
+      A              M                                                                           A                    M
+   /     \            |                                                                     /       \                  |
+ a       E            S                                                                  a           E                 S
+       /    \      /      \                                                                          |             /         \
+     a      B    A        M                                                                                       A            M
+          /  |   |  \     |                                                                                     /    \         |
+        B    E   a    E                                                                                        a      E
+     /   \   |        |                                                                                               |
+    b     E                                                                                                           B
+          |                                                                                                        /     \
+                                                                                                                  b       E
+                                                                                                                       /     \
+                                                                                                                      a       E
+                                                                                                                              |
+        
+2.
+A. The grammar is not LL(1) because of the Exp ::= id ‘:=’ Exp | Term TermTail rule. It is possible to derive an Exp in two different ways. Exp can be expanded into id := Exp or Exp := Term TermTail := Factor := id.
+B. Making the grammar LL(1) would require changing the Exp rule. The grammar would be LL(1) with the following rule change.
+Exp ::= id ( ‘:=’ Exp | FactorTail TermTail) | ‘(‘ Exp ‘)’ FactorTail TermTail
+C. Exp        <-  id ':=' Exp | Term TermTail
+TermTail    <-  ('+' Term TermTail)?
+Term        <-  Factor FactorTail
+FactorTail  <-  ('*' Factor FactorTail)?
+Factor      <-  '(' Exp ')' | id
+
+3.
+
+4.
